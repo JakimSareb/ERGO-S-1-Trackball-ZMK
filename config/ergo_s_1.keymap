@@ -40,10 +40,22 @@
     combos {
         compatible = "zmk,combos";
 
-        RCtrl+RShift-Layer2 {
-            bindings = <&to 2>;
-            key-positions = <45 51>;
+        Backspace {
+            bindings = <&kp BACKSPACE>;
+            key-positions = <31 32>;
             layers = <0>;
+        };
+    };
+
+    behaviors {
+        SpaceShift: SpaceShift {
+            compatible = "zmk,behavior-hold-tap";
+            label = "SPACESHIFT";
+            #binding-cells = <2>;
+            hold-trigger-key-positions = <52 57>;
+            tapping-term-ms = <120>;
+            flavor = "balanced";
+            bindings = <&SpaceShift>;
         };
     };
 
@@ -82,13 +94,13 @@
             //                                                         |      |         |      |
 
             bindings = <
-&trans      &kp F1        &kp F2        &kp F3        &kp F4           &kp F5                                                &kp F6           &kp F7           &kp F8           &kp F9                   &kp F10          &trans
-&trans      &kp F11       &kp F12       &trans        &trans           &trans                                                &trans           &kp KP_NUMBER_7  &kp KP_NUMBER_8  &kp KP_NUMBER_9          &kp KP_PLUS      &kp KP_MULTIPLY
-&trans      &trans        &trans        &trans        &kp PRINTSCREEN  &trans                                                &trans           &kp KP_NUMBER_4  &kp KP_NUMBER_5  &kp KP_NUMBER_6          &kp KP_SUBTRACT  &kp KP_DIVIDE
-&bt BT_CLR  &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3     &bt BT_SEL 4                                          &trans           &kp KP_NUMBER_1  &kp KP_NUMBER_2  &kp RA(RC(KP_NUMBER_3))  &kp KP_EQUAL     &kp KP_ENTER
-            &trans        &trans        &trans        &trans           &mo 2         &trans  &trans  &kp KP_NUMLOCK  &trans  &kp KP_NUMBER_0  &trans           &trans           &kp RA(LS(KP_DOT))       &trans
-                                                                       &trans        &trans          &trans          &trans
-                                                                       &kp INS                                       &trans
+&studio_unlock  &kp F1        &kp F2        &kp F3        &kp F4           &kp F5                                                &kp F6           &kp F7           &kp F8           &kp F9                   &kp F10          &trans
+&trans          &kp F11       &kp F12       &trans        &trans           &trans                                                &trans           &kp KP_NUMBER_7  &kp KP_NUMBER_8  &kp KP_NUMBER_9          &kp KP_PLUS      &kp KP_MULTIPLY
+&trans          &trans        &trans        &trans        &kp PRINTSCREEN  &trans                                                &trans           &kp KP_NUMBER_4  &kp KP_NUMBER_5  &kp KP_NUMBER_6          &kp KP_SUBTRACT  &kp KP_DIVIDE
+&bt BT_CLR      &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3     &bt BT_SEL 4                                          &trans           &kp KP_NUMBER_1  &kp KP_NUMBER_2  &kp RA(RC(KP_NUMBER_3))  &kp KP_EQUAL     &kp KP_ENTER
+                &trans        &trans        &trans        &trans           &mo 2         &trans  &trans  &kp KP_NUMLOCK  &trans  &kp KP_NUMBER_0  &trans           &trans           &kp RA(LS(KP_DOT))       &trans
+                                                                           &trans        &trans          &trans          &trans
+                                                                           &kp INS                                       &trans
             >;
 
             sensor-bindings = <&inc_dec_kp A B &inc_dec_kp C D>;
