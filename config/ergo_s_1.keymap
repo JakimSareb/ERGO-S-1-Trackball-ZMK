@@ -23,7 +23,6 @@
 };
 */
 
-
 /*
  * Copyright (c) 2021 The ZMK Contributors
  *
@@ -68,7 +67,7 @@
                 &kp GRAVE  &kp DELETE  &kp LEFT  &kp RIGHT          &kp BACKSPACE  &mo 1      &kp HOME        &kp PG_UP      &kp ENTER  &kp SPACE          &kp UP  &kp DOWN   &kp LBKT    &kp RBKT
                                                                                               &kp END         &kp PG_DN
             >;
-            sensor-bindings = <&inc_dec_kp A B &inc_dec_kp C D>;
+sensor-bindings = <&inc_dec_kp A B &inc_dec_kp C D>;
         };
 
         fn_layer {
@@ -88,7 +87,7 @@
               &trans   &trans   &trans   &trans                    &trans  &trans        &trans    &trans      &kp RA(LS(SPACE))  &kp LC(LS(V))             &kp NUMBER_0  &kp DOT  &kp RETURN  &kp SLASH
                                                                                          &trans    &trans
             >;
-            sensor-bindings = <&inc_dec_kp A B &inc_dec_kp C D>;
+sensor-bindings = <&inc_dec_kp A B &inc_dec_kp C D>;
         };
 
         layer_2 {
@@ -100,7 +99,7 @@
         &trans  &trans  &trans  &trans          &trans  &trans  &trans    &trans  &trans  &trans          &trans     &trans     &trans     &trans
                                                                 &trans    &trans
             >;
-            sensor-bindings = <&inc_dec_kp A B &inc_dec_kp C D>;
+sensor-bindings = <&inc_dec_kp A B &inc_dec_kp C D>;
         };
     };
 };
