@@ -1,27 +1,3 @@
-/* ORIGINAL for ZMK STUDIO
-#include <behaviors.dtsi>
-#include <dt-bindings/zmk/keys.h>
-
-/ {
-    keymap {
-        compatible = "zmk,keymap";
-
-        default_layer {
-            display-name = "Base";
-            bindings = <
-                &kp A &kp B &kp C &kp D &kp E &kp F &kp G &kp H &kp I &kp J &kp K &kp L
-                &kp M &kp N &kp O &kp P &kp Q &kp R &kp S &kp T &kp U &kp V &kp W &kp X
-                &kp Y &kp Z &kp A &kp B &kp C &kp D &kp E &kp F &kp G &kp H &kp I &kp J
-                &kp K &kp L &kp M &kp N &kp O &kp P &kp Q &kp R &kp S &kp T &kp U &kp V
-                &kp W &kp X &kp Y &kp Z &kp A &kp B &kp C &kp D &kp E &kp F &kp G &kp H &kp I &kp J
-                &kp K &kp L &kp M &kp N
-                &kp O &kp P
-            >;
-            sensor-bindings = <&inc_dec_kp A B &inc_dec_kp C D>;
-        };
-    };
-};
-*/
 /*
  * Copyright (c) 2021 The ZMK Contributors
  *
@@ -42,20 +18,23 @@
 
         Backspace {
             bindings = <&kp BACKSPACE>;
+            // Ensure these positions match your physical layout
             key-positions = <31 32>;
             layers = <0>;
         };
     };
 
     behaviors {
-        SpaceShift: SpaceShift {
+        // SpaceShift: Hold for one key, Tap for another
+        // Usage: &ss LSHFT SPACE
+        ss: space_shift {
             compatible = "zmk,behavior-hold-tap";
-            label = "SPACESHIFT";
+            label = "SPACE_SHIFT";
             #binding-cells = <2>;
-            hold-trigger-key-positions = <52 57>;
             tapping-term-ms = <120>;
             flavor = "balanced";
-            bindings = <&SpaceShift>;
+            bindings = <&kp>, <&kp>;
+            hold-trigger-key-positions = <52 57>;
         };
     };
 
@@ -63,47 +42,31 @@
         compatible = "zmk,keymap";
 
         BASE {
-            // ---------------------------------------------------------------------------------------------------------------------------------
-            // | ESC  |  1   |  2   |  3   |  4   |  5   |                                                   |  6   |  7   |  8   |  9   |  0   | BSPC |
-            // | WIN  |  Q   |  W   |  E   |  R   |  T   |                                                   |  Y   |  U   |  I   |  O   |  P   | EQL  |
-            // | TAB  |  A   |  S   |  D   |  F   |  G   |                                                   |  H   |  J   |  K   |  L   | SCLN | QUOT |
-            // | LCTL |  Z   |  X   |  C   |  V   |  B   |      | CTL  | ALT  |         | CAPS | CTL  |      |  N   |  M   | COMM | DOT  | SLSH | MINS |
-            //        | GRV  | BSLS | LEFT | RGHT |      | SHFT |  FN  | HOME |         | PGUP | ENT  | SPC  |      |  UP  |  DN  | LBKT | RBKT |
-            //                                                         | END  |         | PGDN |
-
             bindings = <
-&kp ESCAPE    &kp N1     &kp N2    &kp N3          &kp N4     &kp N5                                                                 &kp N6     &kp N7  &kp N8          &kp N9            &kp N0             &kp BACKSPACE
-&kp LEFT_GUI  &kp Q      &kp W     &kp E           &kp R      &kp T                                                                  &kp Y      &kp U   &kp I           &kp O             &kp P              &kp EQUAL
-&kp TAB       &kp A      &kp S     &kp D           &kp F      &kp G                                                                  &kp H      &kp J   &kp K           &kp L             &kp SEMI           &kp SINGLE_QUOTE
-&kp DEL       &kp Z      &kp X     &kp C           &kp V      &kp B                                                                  &kp N      &kp M   &kp COMMA       &kp DOT           &kp SLASH          &kp MINUS
+&kp ESCAPE    &kp N1     &kp N2    &kp N3          &kp N4     &kp N5                                                                    &kp N6     &kp N7  &kp N8          &kp N9            &kp N0             &kp BACKSPACE
+&kp LEFT_GUI  &kp Q      &kp W     &kp E            &kp R      &kp T                                                                     &kp Y      &kp U   &kp I           &kp O             &kp P              &kp EQUAL
+&kp TAB        &kp A      &kp S     &kp D            &kp F      &kp G                                                                     &kp H      &kp J   &kp K           &kp L             &kp SEMI           &kp SINGLE_QUOTE
+&kp DEL        &kp Z      &kp X     &kp C            &kp V      &kp B                                                                     &kp N      &kp M   &kp COMMA       &kp DOT           &kp SLASH          &kp MINUS
               &kp GRAVE  &kp BSLH  &kp LEFT_ARROW  &kp RIGHT  &kp LEFT_SHIFT  &kp LCTRL  &kp LEFT_ALT  &kp CAPS   &kp RIGHT_CONTROL  &kp SPACE  &kp UP  &kp DOWN_ARROW  &kp LEFT_BRACKET  &kp RIGHT_BRACKET
                                                               &mo 1           &kp HOME                 &kp PG_UP  &kp ENTER
                                                               &kp END                                             &kp PAGE_DOWN
             >;
 
-            sensor-bindings = <&inc_dec_kp A B &inc_dec_kp C D>;
+            sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp RIGHT LEFT>;
         };
 
-        FN-NumPad-BT {
-            // ---------------------------------------------------------------------------------------------------------------------------------
-            // |BT_CLR|  F1  |  F2  |  F3  |  F4  |  F5  |                                                   |      | NLCK |  =   |  /   |  *   |      |
-            // |      |  F6  |  F7  |  F8  |  F9  |  F10 |                                                   |      |  7   |  8   |  9   |  -   |      |
-            // |      |      |      |      |      |      |                                                   |      |  4   |  5   |  6   |  +   |      |
-            // |      |      |      |      |      | PTSC |      |      |      |         |      |      |      |      |  1   |  2   |  3   | ENT  |      |
-            //        |      | INS  |      |      |      |      |  FN  |      |         |      |      |      |      |      |      |  .   | ENT  |
-            //                                                         |      |         |      |
-
+        FN_NUMPAD {
             bindings = <
-&studio_unlock  &kp F1        &kp F2        &kp F3        &kp F4           &kp F5                                                &kp F6           &kp F7           &kp F8           &kp F9                   &kp F10          &trans
-&trans          &kp F11       &kp F12       &trans        &trans           &trans                                                &trans           &kp KP_NUMBER_7  &kp KP_NUMBER_8  &kp KP_NUMBER_9          &kp KP_PLUS      &kp KP_MULTIPLY
-&trans          &trans        &trans        &trans        &kp PRINTSCREEN  &trans                                                &trans           &kp KP_NUMBER_4  &kp KP_NUMBER_5  &kp KP_NUMBER_6          &kp KP_SUBTRACT  &kp KP_DIVIDE
-&bt BT_CLR      &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3     &bt BT_SEL 4                                          &trans           &kp KP_NUMBER_1  &kp KP_NUMBER_2  &kp RA(RC(KP_NUMBER_3))  &kp KP_EQUAL     &kp KP_ENTER
+&studio_unlock  &kp F1        &kp F2        &kp F3        &kp F4           &kp F5                                                 &kp F6           &kp F7           &kp F8           &kp F9                    &kp F10          &trans
+&trans          &kp F11       &kp F12       &trans        &trans           &trans                                                 &trans           &kp KP_NUMBER_7  &kp KP_NUMBER_8  &kp KP_NUMBER_9           &kp KP_PLUS      &kp KP_MULTIPLY
+&trans          &trans        &trans        &trans        &kp PRINTSCREEN  &trans                                                 &trans           &kp KP_NUMBER_4  &kp KP_NUMBER_5  &kp KP_NUMBER_6           &kp KP_SUBTRACT  &kp KP_DIVIDE
+&bt BT_CLR      &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3     &bt BT_SEL 4                                           &trans           &kp KP_NUMBER_1  &kp KP_NUMBER_2  &kp RA(RC(KP_NUMBER_3))  &kp KP_EQUAL     &kp KP_ENTER
                 &trans        &trans        &trans        &trans           &mo 2         &trans  &trans  &kp KP_NUMLOCK  &trans  &kp KP_NUMBER_0  &trans           &trans           &kp RA(LS(KP_DOT))       &trans
                                                                            &trans        &trans          &trans          &trans
                                                                            &kp INS                                       &trans
             >;
 
-            sensor-bindings = <&inc_dec_kp A B &inc_dec_kp C D>;
+            sensor-bindings = <&inc_dec_kp C_NEXT C_PREV &inc_dec_kp C_BRIGHTNESS_INC C_BRIGHTNESS_DEC>;
         };
 
         Mouse {
@@ -117,7 +80,7 @@
                                                          &trans                          &trans
             >;
 
-            sensor-bindings = <&inc_dec_kp A B &inc_dec_kp C D>;
+            sensor-bindings = <&inc_dec_msc SCRL_RIGHT SCRL_LEFT &inc_dec_msc SCRL_UP SCRL_DOWN>;
         };
 
         layer_3 {
