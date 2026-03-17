@@ -1,0 +1,8 @@
+config SHIELD_ERGO_S_1_LEFT
+    def_bool $(shields_list_contains,ergo_s_1_left)
+  
+config SHIELD_ERGO_S_1_RIGHT
+    def_bool $(shields_list_contains,ergo_s_1_right)
+  
+config SHIELD_ERGO_S_1_DONGLE
+    def_bool $(shields_list_contains,ergo_s_1_dongle)
