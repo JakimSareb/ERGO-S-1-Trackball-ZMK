@@ -30,10 +30,10 @@
             bindings = <&kp BACKSPACE>;
         };
 
-        // Combo S (27) + D (28) + F (29) = Escape
+        // Combo S (26) + D (27) + F (28) = Escape
         combo_escape {
             timeout-ms = <50>;
-            key-positions = <27 28 29>;
+            key-positions = <26 27 28>;
             bindings = <&kp ESCAPE>;
         };
     };
@@ -102,11 +102,11 @@
 
         Mouse {
             bindings = <
-&bt BT_CLR             &bt BT_SEL 0   &bt BT_SEL 1    &bt BT_SEL 2  &bt BT_SEL 3     &bt BT_SEL 4                                              &trans  &trans        &trans          &trans     &trans  &trans
-&trans  &trans         &trans         &mmv MOVE_UP    &trans           &trans                                                 &trans  &trans        &trans          &trans     &trans  &trans
-&trans  &trans         &mmv MOVE_LEFT &mmv MOVE_DOWN  &mmv MOVE_RIGHT  &trans                                                 &trans  &mkp LCLK     &mkp MCLK       &mkp RCLK  &trans  &trans
-&trans  &trans         &trans         &trans          &trans           &trans                                                 &trans  &trans        &trans          &trans     &trans  &trans
-        &trans         &trans         &trans          &trans           &trans  &trans  &trans  &trans  &trans  &trans   &trans  &trans  &trans     &trans
+&bt BT_CLR             &bt BT_SEL 0   &bt BT_SEL 1    &bt BT_SEL 2  &bt BT_SEL 3     &bt BT_SEL 4                             &trans        &trans        &trans          &trans     &trans  &trans
+&trans  &trans         &trans         &mmv MOVE_UP    &trans           &trans                                                 &trans        &trans        &trans          &trans     &trans  &trans
+&trans  &trans         &mmv MOVE_LEFT &mmv MOVE_DOWN  &mmv MOVE_RIGHT  &trans                                                 &kp SCRL_UP   &mkp LCLK     &mkp MCLK       &mkp RCLK  &trans  &trans
+&trans  &trans         &trans         &trans          &trans           &trans                                                 &kp SCRL_DOWN &trans        &trans          &trans     &trans  &trans
+        &trans         &trans         &trans          &trans           &trans  &trans  &trans  &trans  &trans  &trans   &trans  &trans      &trans        &trans
                                                                                &trans  &trans          &trans  &trans
                                                                                &trans                          &trans
             >;
