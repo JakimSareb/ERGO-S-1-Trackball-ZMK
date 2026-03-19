@@ -12,9 +12,15 @@
 #define DEFAULT 0
 #define FN      1
 
+
 &mmv {
-    time-to-max-speed-ms = <300>;
-    acceleration-exponent = <2>;
+    acceleration-exponent = <1>;      // 1 para lineal, 2 para aceleración curva
+    time-to-max-speed-ms = <600>;     // Cuánto tarda en llegar al máximo (menos es más rápido)
+    delay-ms = <0>;                   // Retraso antes de empezar el movimiento
+};
+
+&mmv_input_listener {
+    input-processors = <&zip_xy_scaler 3 1>; // El primer número (2) multiplica la velocidad
 };
 
 &msc {
@@ -26,7 +32,6 @@
     tapping-term-ms = <200>;
     flavor = "balanced";
     quick-tap-ms = <175>;
-    require-prior-idle-ms = <150>;
 };
 
 / {
@@ -71,7 +76,7 @@
             bindings = <
 &gresc          &kp N1     &kp N2     &kp N3          &kp N4      &kp N5                                                                      &kp N6               &kp N7          &kp N8          &kp N9            &kp N0             &kp EQUAL
 &kp TAB         &kp Q      &kp W      &kp E            &kp R      &kp T                                                                       &kp Y                &kp U           &kp I           &kp O             &kp P              &kp BSLH
-&kp LCTRL       &kp A      &kp S      &kp D            &kp F      &kp G                                                                       &kp H                &kp J           &kp K           &kp L             &kp SEMI           &kp SINGLE_QUOTE
+&kp LCTRL       &mt LGUI A  &mt LALT S  &mt LCTRL D  &mt LSHFT F  &kp G                                                                       &kp H                &mt RSHFT J     &mt RCTRL K     &mt LALT L        &mt RGUI SEMI      &kp SINGLE_QUOTE
 &kp DEL         &kp Z      &kp X      &kp C            &kp V      &kp B                                                                       &kp N                &kp M           &kp COMMA       &kp DOT           &kp SLASH          &kp MINUS
                 &kp NUBS   &kp GRAVE    &kp LEFT_ARROW   &kp RIGHT  &mt LSHIFT SPACE     &kp LCTRL  &kp LEFT_ALT  &kp CAPS   &kp RIGHT_CONTROL  &mt RSHIFT SPACE     &kp DOWN_ARROW  &kp UP          &kp LEFT_BRACKET  &kp RIGHT_BRACKET
                                                                   &lt 1 ENTER          &mt RIGHT_ALT HOME                  &mt RIGHT_ALT PG_UP &lt 2 ENTER
@@ -97,11 +102,11 @@
 
         Mouse {
             bindings = <
-&bt BT_CLR             &bt BT_SEL 0   &bt BT_SEL 1    &bt BT_SEL 2  &bt BT_SEL 3     &bt BT_SEL 4                             &trans        &trans        &trans          &trans     &trans  &trans
-&trans  &trans         &trans         &mmv MOVE_UP    &trans           &trans                                                 &trans        &trans        &trans          &trans     &trans  &trans
-&trans  &trans         &mmv MOVE_LEFT &mmv MOVE_DOWN  &mmv MOVE_RIGHT  &trans                                                 &kp SCRL_UP   &mkp LCLK     &mkp MCLK       &mkp RCLK  &trans  &trans
-&trans  &trans         &trans         &trans          &trans           &trans                                                 &kp SCRL_DOWN &trans        &trans          &trans     &trans  &trans
-        &trans         &trans         &trans          &trans           &trans  &trans  &trans  &trans  &trans  &trans   &trans  &trans      &trans        &trans
+&bt BT_CLR    &bt BT_SEL 0   &bt BT_SEL 1   &bt BT_SEL 2   &bt BT_SEL 3     &bt BT_SEL 4                                      &trans           &trans            &trans            &trans     &trans  &trans
+&trans        &trans         &trans         &mmv MOVE_UP    &trans           &trans                                           &trans           &trans            &trans            &trans     &trans  &trans
+&trans        &trans         &mmv MOVE_LEFT &mmv MOVE_DOWN  &mmv MOVE_RIGHT  &trans                                           &mwh SCROLL_UP   &mkp LCLK         &mkp MCLK         &mkp RCLK  &trans  &trans
+&trans        &trans         &trans         &trans          &trans           &trans                                           &mwh SCROLL_DOWN &mwh SCROLL_LEFT  &mwh SCROLL_RIGHT &trans     &trans  &trans
+              &trans         &trans         &trans          &trans           &trans  &trans  &trans  &trans  &trans  &trans   &trans  &trans           &trans            &trans
                                                                                &trans  &trans          &trans  &trans
                                                                                &trans                          &trans
             >;
@@ -109,7 +114,7 @@
             sensor-bindings = <&inc_dec_msc SCRL_RIGHT SCRL_LEFT &inc_dec_msc SCRL_UP SCRL_DOWN>;
         };
 
-        layer_3 {
+        Extra {
             bindings = <
 &trans  &trans  &trans  &trans  &trans  &trans                                  &trans  &trans  &trans  &trans  &trans  &trans
 &trans  &trans  &trans  &trans  &trans  &trans                                  &trans  &trans  &trans  &trans  &trans  &trans
