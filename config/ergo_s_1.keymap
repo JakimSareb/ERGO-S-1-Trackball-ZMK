@@ -78,9 +78,9 @@
 &kp LEFT_GUI    &kp Q      &kp W      &kp E            &kp R      &kp T                                                                      &kp Y      &kp U   &kp I           &kp O             &kp P              &kp EQUAL
 &kp TAB         &kp A      &kp S      &kp D            &kp F      &kp G                                                                      &kp H      &kp J   &kp K           &kp L             &kp SEMI           &kp SINGLE_QUOTE
 &kp DEL         &kp Z      &kp X      &kp C            &kp V      &kp B                                                                      &kp N      &kp M   &kp COMMA       &kp DOT           &kp SLASH          &kp MINUS
-                &kp GRAVE  &kp BSLH  &kp LEFT_ARROW  &kp RIGHT  &ht_tp LSHIFT SPACE  &kp LCTRL  &kp LEFT_ALT  &kp CAPS   &kp RIGHT_CONTROL  &ht_tp RSHIFT SPACE  &kp DOWN_ARROW  &kp UP      &kp LEFT_BRACKET  &kp RIGHT_BRACKET
-                                                              &lt_tp 1 ENTER       &kp HOME                                &kp PG_UP  &lt_tp 2 ENTER
-                                                              &kp END                                                                 &kp PAGE_DOWN
+                &kp NUBS  &kp BSLH  &kp LEFT_ARROW  &kp RIGHT  &ht_tp LSHIFT SPACE  &kp LCTRL  &kp LEFT_ALT  &kp RALT   &kp LGUI             &ht_tp RSHIFT SPACE  &kp DOWN_ARROW  &kp UP      &kp LEFT_BRACKET  &kp RIGHT_BRACKET
+                                                              &lt_tp 1 ENTER       &kp HOME                             &kp RIGHT_CONTROL    &lt_tp 2 ENTER
+                                                              &kp END                                                                        &kp CAPS
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp RIGHT LEFT>;
@@ -90,8 +90,8 @@
             bindings = <
 &studio_unlock  &kp F1        &kp F2        &kp F3        &kp F4           &kp F5                                                 &kp F6           &kp F7           &kp F8           &kp F9                    &kp F10          &trans
 &trans          &kp F11       &kp F12       &trans        &trans           &trans                                                 &trans           &kp KP_NUMBER_7  &kp KP_NUMBER_8  &kp KP_NUMBER_9           &trans           &trans 
-&trans          &trans        &trans        &trans        &kp PRINTSCREEN  &trans                                                 &trans           &kp KP_NUMBER_4  &kp KP_NUMBER_5  &kp KP_NUMBER_6           &kp KP_PLUS      &kp KP_MULTIPLY
-&trans          &trans        &trans        &trans        &trans           &trans                                                 &trans           &kp KP_NUMBER_1  &kp KP_NUMBER_2  &kp KP_NUMBER_3           &kp KP_SUBTRACT  &kp KP_DIVIDE
+&trans          &trans        &trans        &trans        &kp PRINTSCREEN  &trans                                                 &kp PAGE_UP      &kp KP_NUMBER_4  &kp KP_NUMBER_5  &kp KP_NUMBER_6           &kp KP_PLUS      &kp KP_MULTIPLY
+&trans          &trans        &trans        &trans        &trans           &trans                                                 &kp PAGE_DOWN    &kp KP_NUMBER_1  &kp KP_NUMBER_2  &kp KP_NUMBER_3           &kp KP_SUBTRACT  &kp KP_DIVIDE
                 &trans        &trans        &trans        &trans           &trans         &trans  &trans  &kp KP_NUMLOCK  &trans  &kp KP_NUMBER_0  &trans           &trans           &kp KP_DOT       &kp KP_EQUAL
                                                                            &trans        &trans          &trans          &kp KP_ENTER
                                                                            &kp INS                                       &trans
@@ -102,11 +102,11 @@
 
         Mouse {
             bindings = <
-&bt BT_CLR             &bt BT_SEL 0   &bt BT_SEL 1    &bt BT_SEL 2  &bt BT_SEL 3     &bt BT_SEL 4                                              &trans  &trans        &trans          &trans     &trans  &trans
-&trans  &trans         &trans         &mmv MOVE_UP    &trans           &trans                                                 &trans  &trans        &trans          &trans     &trans  &trans
-&trans  &trans         &mmv MOVE_LEFT &mmv MOVE_DOWN  &mmv MOVE_RIGHT  &trans                                                 &trans  &mkp LCLK     &mkp MCLK       &mkp RCLK  &trans  &trans
-&trans  &trans         &trans         &trans          &trans           &trans                                                 &trans  &trans        &trans          &trans     &trans  &trans
-        &trans         &trans         &trans          &trans           &trans  &trans  &trans  &trans  &trans  &trans   &trans  &trans  &trans     &trans
+&bt BT_CLR             &bt BT_SEL 0   &bt BT_SEL 1    &bt BT_SEL 2  &bt BT_SEL 3     &bt BT_SEL 4                                               &trans  &trans        &trans          &trans     &trans  &trans
+&trans  &trans         &trans         &mmv MOVE_UP    &trans           &trans                                                 &trans            &trans        &trans          &trans     &trans  &trans
+&trans  &trans         &mmv MOVE_LEFT &mmv MOVE_DOWN  &mmv MOVE_RIGHT  &trans                                                 &kp SCRL_UP       &kp LCLK     &mkp MCLK       &mkp RCLK  &trans  &trans
+&trans  &trans         &trans         &trans          &trans           &trans                                                 &kp SCRL_DOWN     &trans        &trans          &trans     &trans  &trans
+        &trans         &trans         &trans          &trans           &trans  &trans  &trans  &trans  &trans  &trans   &trans  &trans  &trans  &trans
                                                                                &trans  &trans          &trans  &trans
                                                                                &trans                          &trans
             >;
