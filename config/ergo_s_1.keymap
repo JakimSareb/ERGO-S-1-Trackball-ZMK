@@ -83,7 +83,7 @@
                                                                   &mt LEFT_GUI END                                                            &mt RIGHT_GUI PAGE_DOWN
             >; 
 
-            sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp RIGHT LEFT>;
+            sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp RIGHT_ARROW LEFT_ARROW>;
         };
 
         FN_NUMPAD {
