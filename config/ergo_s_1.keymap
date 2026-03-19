@@ -83,7 +83,7 @@
                                                                   &mt LEFT_GUI END                                                            &mt RIGHT_GUI PAGE_DOWN
             >; 
 
-            sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp RIGHT_ARROW LEFT_ARROW>;
+            sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>, <&inc_dec_kp RIGHT_ARROW LEFT_ARROW>;
         };
 
         FN_NUMPAD {
@@ -104,8 +104,8 @@
             bindings = <
 &bt BT_CLR    &bt BT_SEL 0   &bt BT_SEL 1   &bt BT_SEL 2   &bt BT_SEL 3     &bt BT_SEL 4                                      &trans           &trans            &trans            &trans     &trans  &trans
 &trans        &trans         &trans         &mmv MOVE_UP    &trans           &trans                                           &trans           &trans            &trans            &trans     &trans  &trans
-&trans        &trans         &mmv MOVE_LEFT &mmv MOVE_DOWN  &mmv MOVE_RIGHT  &trans                                           &msc SCROLL_UP   &mkp LCLK         &mkp MCLK         &mkp RCLK  &trans  &trans
-&trans        &trans         &trans         &trans          &trans           &trans                                           &msc SCROLL_DOWN &msc SCROLL_LEFT  &msc SCROLL_RIGHT &trans     &trans  &trans
+&trans        &trans         &mmv MOVE_LEFT &mmv MOVE_DOWN  &mmv MOVE_RIGHT  &trans                                           &msc SCRL_UP   &mkp LCLK         &mkp MCLK         &mkp RCLK  &trans  &trans
+&trans        &trans         &trans         &trans          &trans           &trans                                           &msc SCRL_DOWN &msc SCROLL_LEFT  &msc SCROLL_RIGHT &trans     &trans  &trans
               &trans         &trans         &trans          &trans           &trans  &trans  &trans  &trans  &trans  &trans   &trans  &trans           &trans            &trans
                                                                                &trans  &trans          &trans  &trans
                                                                                &trans                          &trans
