@@ -35,7 +35,7 @@
 
         combo_backspace_left {
             timeout-ms = <50>;
-            key-positions = <13 14>;
+            key-positions = <37 38>;
             bindings = <&kp BACKSPACE>;
         };
 
