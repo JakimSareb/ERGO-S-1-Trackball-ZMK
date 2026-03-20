@@ -13,8 +13,8 @@
 #define FN      1
 
 &mmv {
-    acceleration-exponent = <1>;      // 1 para lineal, 2 para aceleración
-    time-to-max-speed-ms = <400>;     // Baja este número para que sea más rápido
+    acceleration-exponent = <4>;      // 1 para lineal, 2 para aceleración
+    time-to-max-speed-ms = <300>;     // Baja este número para que sea más rápido
     delay-ms = <0>;                   
 };
 
