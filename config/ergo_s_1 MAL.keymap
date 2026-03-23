@@ -1,0 +1,62 @@
+/*
+ * Copyright (c) 2021 The ZMK Contributors
+ *
+ * SPDX-License-Identifier: MIT
+ */
+
+#include <behaviors.dtsi>
+#include <dt-bindings/zmk/bt.h>
+#include <dt-bindings/zmk/keys.h>
+#include <dt-bindings/zmk/pointing.h>
+
+#define DEFAULT 0
+#define FN      1
+
+&mmv {
+    acceleration-exponent = <4>;
+    time-to-max-speed-ms = <300>;
+    delay-ms = <0>;                   
+};
+
+&msc {
+    time-to-max-speed-ms = <300>;
+    acceleration-exponent = <2>;
+};
+
+&mt {
+    tapping-term-ms = <200>;
+    flavor = "balanced";
+    quick-tap-ms = <175>;
+};
+
+/ {
+    behaviors {
+        inc_dec_msc: inc_dec_msc {
+            compatible = "zmk,behavior-sensor-rotate-var";
+            #sensor-binding-cells = <2>;
+            bindings = <&msc>, <&msc>;
+            tap-ms = <20>;
+        };
+    };
+
+    keymap {
+        compatible = "zmk,keymap";
+
+        BASE {
+            bindings = <
+&kp GRAVE  &kp N1  &kp N2  &kp N3  &kp N4  &kp N5                                                                &kp N6  &kp N7  &kp N8     &kp N9   &kp N0    &kp EQUAL
+&kp ESC    &kp Q   &kp W   &kp E   &kp R   &kp T                                                                 &kp Y   &kp U   &kp I      &kp O    &kp P     &kp MINUS
+&mt LCTRL TAB &kp A &kp S  &kp D   &kp F   &kp G                                                                 &kp H   &kp J   &kp K      &kp L    &kp SEMI  &kp SQT
+&kp DEL    &kp Z   &kp X   &kp C   &kp V   &kp B                                                                 &kp N   &kp M   &kp COMMA  &kp DOT  &kp SLASH &kp BSLH
+           &kp NUBS &trans &kp LEFT &kp RIGHT &mt LSHIFT SPACE &mt LCTRL DEL &mt LALT ENTER &mt RALT CAPS &mt RCTRL &mt RSHIFT SPACE &kp DOWN &kp UP &kp RBRC &kp LBRC
+                                              &mt LGUI BSPC    &lt 2 HOME    &kp PG_UP      &kp ENTER
+                                                               &lt 1 END     &kp PAGE_DOWN  &none
+            >; 
+
+            sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>, <&inc_dec_kp RIGHT_ARROW LEFT_ARROW>;
+        };
+
+        FN_NUMPAD {
+            bindings = <
+&studio_unlock &kp F1  &kp F2  &kp F3  &kp F4  &kp F5                                                            &kp F6  &kp F7  &kp F8  &kp F9  &kp F10 &trans
+&trans         &kp F11 &kp F12 &trans  &trans  &trans                                                            &trans  &kp KP_N7 &kp KP_N8 &kp KP_N9 &trans &trans
