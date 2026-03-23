@@ -66,14 +66,16 @@
 
         BASE {
             bindings = <
-&kp GRAVE       &kp N1     &kp N2     &kp N3           &kp N4      &kp N5                                                                                            &kp N6              &kp N7           &kp N8          &kp N9        &kp N0             &kp EQUAL
-&kp ESC         &kp Q      &kp W      &kp E            &kp R       &kp T                                                                                             &kp Y               &kp U            &kp I           &kp O         &kp P              &kp MINUS
-// &mt LCTRL TAB   &mt LGUI A &mt LALT S &mt LCTRL D      &mt LSHFT F &kp G                                                                                             &kp H               &mt RSHFT J      &mt RCTRL K     &mt RALT L    &mt RGUI SEMI      &kp SINGLE_QUOTE
-&mt LCTRL TAB   &kp A      &kp S      &kp D            &kp F       &kp G                                                                                             &kp H               &kp J            &kp K           &kp L         &kp SEMI           &kp SINGLE_QUOTE
-&kp DEL         &kp Z      &kp X      &kp C            &kp V       &kp B                                                                                             &kp N               &kp M            &kp COMMA       &kp DOT       &kp SLASH          &kp BSLH
-                &kp NUBS   &trans     &kp LEFT_ARROW   &kp RIGHT   &mt LSHIFT SPACE     &mt LCTRL DEL        &kp LEFT_ALT    &mt RIGHT_ALT CAPS  &mt RIGHT_CONTROL   &mt RSHIFT SPACE    &kp DOWN_ARROW   &kp UP          &kp RBRC      &kp LBRC
-                                                                                        &mt LEFT_GUI BSPC    &lt 2 HOME      &kp PG_UP           &kp ENTER
-                                                                                                             &lt 1 END       &kp PAGE_DOWN
+&kp GRAVE       &kp N1     &kp N2     &kp N3           &kp N4      &kp N5                                                                                                  &kp N6              &kp N7           &kp N8          &kp N9        &kp N0             &kp EQUAL
+&kp ESC         &kp Q      &kp W      &kp E            &kp R       &kp T                                                                                                   &kp Y               &kp U            &kp I           &kp O         &kp P              &kp MINUS
+
+// OPCIONAL &mt LCTRL TAB   &mt LGUI A &mt LALT S &mt LCTRL D      &mt LSHFT F &kp G                                                                                                &kp H               &mt RSHFT J      &mt RCTRL K     &mt RALT L    &mt RGUI SEMI      &kp SINGLE_QUOTE
+
+&mt LCTRL TAB   &kp A      &kp S      &kp D            &kp F       &kp G                                                                                                   &kp H               &kp J            &kp K           &kp L         &kp SEMI           &kp SINGLE_QUOTE
+&kp DEL         &kp Z      &kp X      &kp C            &kp V       &kp B                                                                                                   &kp N               &kp M            &kp COMMA       &kp DOT       &kp SLASH          &kp BSLH
+                &kp NUBS   &trans     &kp LEFT_ARROW   &kp RIGHT   &mt LSHIFT SPACE     &mt LCTRL DEL        &mt LEFT_ALT ENTER    &mt RIGHT_ALT CAPS  &mt RIGHT_CONTROL   &mt RSHIFT SPACE    &kp DOWN_ARROW   &kp UP_ARROW    &kp RBRC      &kp LBRC
+                                                                                        &mt LEFT_GUI BSPC    &lt 2 HOME            &kp PG_UP           &kp ENTER
+                                                                                                             &lt 1 END             &kp PAGE_DOWN
             >; 
 
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>, <&inc_dec_kp RIGHT_ARROW LEFT_ARROW>;
