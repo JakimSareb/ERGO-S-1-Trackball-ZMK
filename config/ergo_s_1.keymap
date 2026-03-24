@@ -80,15 +80,13 @@
         };
     };
     
-    key_overrides {
-        shift_bslash_del: key_override {
-            compatible = "zmk,key-overrides";
-            // When Shift is held and "\" is pressed, send Delete
-            bindings = <&kp DEL>;
-            // The key to override
-            keycode = <BACKSLASH>;
-            // Modifier that triggers the override
-            modifiers = <(MOD_LSFT | MOD_RSFT)>;
+    key-overrides {
+        compatible = "zmk,key-overrides";
+
+        shift_bksp_del: shift_bksp_del {
+            when-pressed = <&kp DEL>;
+            modifiers = <(MOD_LSFT|MOD_RSFT)>;
+            keycodes = <BACKSPACE>;
         };
     };
 
