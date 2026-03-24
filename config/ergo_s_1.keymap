@@ -79,6 +79,18 @@
             key-positions = <0 11>;
         };
     };
+    
+    key_overrides {
+        shift_bslash_del: key_override {
+            compatible = "zmk,key-overrides";
+            // When Shift is held and "\" is pressed, send Delete
+            bindings = <&kp DEL>;
+            // The key to override
+            keycode = <BACKSLASH>;
+            // Modifier that triggers the override
+            modifiers = <(MOD_LSFT | MOD_RSFT)>;
+        };
+    };
 
     behaviors {
         inc_dec_msc: inc_dec_msc {
