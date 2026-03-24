@@ -95,13 +95,13 @@
 
         MAC {
             bindings = <
-&kp NON_US_BSLH  &kp N1     &kp N2                &kp N3          &kp N4     &kp N5                                                                                 &kp N6            &kp N7          &kp N8     &kp N9          &kp N0           &kp EQUAL
-&kp ESCAPE       &kp Q      &kp W                 &kp E           &kp R      &kp T                                                                                  &kp Y             &kp U           &kp I      &kp O           &kp P            &kp UNDER
-&mt LCTRL TAB    &kp A      &kp S                 &kp D           &kp F      &kp G                                                                                  &kp H             &kp J           &kp K      &kp L           &kp SEMI         &kp SINGLE_QUOTE
-&sk LEFT_SHIFT   &kp Z      &kp X                 &kp C           &kp V      &kp B                                                                                  &kp N             &kp M           &kp COMMA  &kp DOT         &kp SLASH        &kp BACKSLASH
-                 &kp GRAVE  &kp LG(LS(NUMBER_4))  &kp LEFT_ARROW  &kp RIGHT  &mt LSHIFT SPACE    &mt LEFT_ALT BACKSPACE  &kp DEL  &kp CAPS     &kp RIGHT_ALT        &mt RSHIFT SPACE  &kp DOWN_ARROW  &kp UP     &kp LEFT_BRACE  &kp RIGHT_BRACE
-                                                                             &mt LEFT_GUI ENTER  &kp HOME                         &lt 3 PG_UP  &mt RIGHT_GUI ENTER
-                                                                             &kp END                                                           &lt 2 PAGE_DOWN
+&kp NON_US_BSLH  &kp N1     &kp N2                &kp N3          &kp N4     &kp N5                                                                               &kp N6            &kp N7          &kp N8     &kp N9          &kp N0           &kp EQUAL
+&kp ESCAPE       &kp Q      &kp W                 &kp E           &kp R      &kp T                                                                                &kp Y             &kp U           &kp I      &kp O           &kp P            &kp UNDER
+&mt LCTRL TAB    &kp A      &kp S                 &kp D           &kp F      &kp G                                                                                &kp H             &kp J           &kp K      &kp L           &kp SEMI         &kp SINGLE_QUOTE
+&sk LEFT_SHIFT   &kp Z      &kp X                 &kp C           &kp V      &kp B                                                                                &kp N             &kp M           &kp COMMA  &kp DOT         &kp SLASH        &kp BACKSLASH
+                 &kp GRAVE  &kp LG(LS(NUMBER_4))  &kp LEFT_ARROW  &kp RIGHT  &mt LSHIFT SPACE    &mt LEFT_ALT BACKSPACE  &kp DEL  &kp CAPS   &kp RIGHT_ALT        &mt RSHIFT SPACE  &kp DOWN_ARROW  &kp UP     &kp LEFT_BRACE  &kp RIGHT_BRACE
+                                                                             &mt LEFT_GUI ENTER  &kp HOME                         &kp PG_UP  &mt RIGHT_GUI ENTER
+                                                                             &lt 2 END                                                       &lt 3 PAGE_DOWN
             >;
 
             sensor-bindings =
@@ -127,7 +127,7 @@
 &trans          &kp F11  &kp F12  &trans             &trans           &trans                                                &trans           &kp KP_NUMBER_7  &kp KP_NUMBER_8  &kp KP_NUMBER_9  &trans           &trans
 &trans          &trans   &trans   &trans             &trans           &trans                                                &trans           &kp KP_NUMBER_4  &kp KP_NUMBER_5  &kp KP_NUMBER_6  &kp KP_PLUS      &kp KP_MULTIPLY
 &trans          &trans   &trans   &trans             &trans           &trans                                                &trans           &kp KP_NUMBER_1  &kp KP_NUMBER_2  &kp KP_NUMBER_3  &kp KP_SUBTRACT  &kp KP_DIVIDE
-                &trans   &trans   &kp C_VOLUME_DOWN  &kp C_VOLUME_UP  &trans  &trans  &trans  &kp KP_NUMLOCK  &trans        &kp KP_NUMBER_0  &trans           &trans           &kp KP_DOT       &kp KP_EQUAL
+                &trans   &trans   &kp K_VOLUME_DOWN  &kp K_VOLUME_UP  &trans  &trans  &trans  &kp KP_NUMLOCK  &trans        &kp KP_NUMBER_0  &trans           &trans           &kp KP_DOT       &kp KP_EQUAL
                                                                       &trans  &trans          &trans          &kp KP_ENTER
                                                                       &trans                                  &trans
             >;
