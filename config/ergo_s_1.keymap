@@ -72,6 +72,11 @@
             layers = <1>;
             timeout-ms = <50>;
         };
+
+        TOGGLE-MAC-WIN {
+            bindings = <&tog 1>;
+            key-positions = <0 11>;
+        };
     };
 
     behaviors {
