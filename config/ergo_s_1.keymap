@@ -89,13 +89,13 @@
 
         MAC {
             bindings = <
-&gresc     &kp N1      &kp N2      &kp N3          &kp N4       &kp N5                                                                               &kp N6            &kp N7          &kp N8       &kp N9            &kp N0             &kp EQUAL
-&kp TAB    &kp Q       &kp W       &kp E           &kp R        &kp T                                                                                &kp Y             &kp U           &kp I        &kp O             &kp P              &kp BSLH
-&kp LCTRL  &mt LGUI A  &mt LALT S  &mt LCTRL D     &mt LSHFT F  &kp G                                                                                &kp H             &mt RSHFT J     &mt RCTRL K  &mt RALT L        &mt RGUI SEMI      &kp SINGLE_QUOTE
-&kp DEL    &kp Z       &kp X       &kp C           &kp V        &kp B                                                                                &kp N             &kp M           &kp COMMA    &kp DOT           &kp SLASH          &kp MINUS
-           &kp NUBS    &kp GRAVE   &kp LEFT_ARROW  &kp RIGHT    &mt LSHIFT SPACE    &mt LEFT_ALT BACKSPACE  &kp DEL  &kp CAPS   &kp RIGHT_ALT        &mt RSHIFT SPACE  &kp DOWN_ARROW  &kp UP       &kp LEFT_BRACKET  &kp RIGHT_BRACKET
-                                                                &mt LEFT_GUI ENTER  &lt 3 HOME                       &kp PG_UP  &mt RIGHT_GUI ENTER
-                                                                &lt 2 END                                                       &lt 3 PAGE_DOWN
+&kp GRAVE       &kp N1    &kp N2                &kp N3          &kp N4     &kp N5                                                                               &kp N6            &kp N7          &kp N8     &kp N9          &kp N0           &kp EQUAL
+&kp ESCAPE      &kp Q     &kp W                 &kp E           &kp R      &kp T                                                                                &kp Y             &kp U           &kp I      &kp O           &kp P            &kp UNDER
+&mt LCTRL TAB   &kp A     &kp S                 &kp D           &kp F      &kp G                                                                                &kp H             &kp J           &kp K      &kp L           &kp SEMI         &kp SINGLE_QUOTE
+&sk LEFT_SHIFT  &kp Z     &kp X                 &kp C           &kp V      &kp B                                                                                &kp N             &kp M           &kp COMMA  &kp DOT         &kp SLASH        &kp BACKSLASH
+                &kp NUBS  &kp LG(LS(NUMBER_4))  &kp LEFT_ARROW  &kp RIGHT  &mt LSHIFT SPACE    &mt LEFT_ALT BACKSPACE  &kp DEL  &kp CAPS   &kp RIGHT_ALT        &mt RSHIFT SPACE  &kp DOWN_ARROW  &kp UP     &kp LEFT_BRACE  &kp RIGHT_BRACE
+                                                                           &mt LEFT_GUI ENTER  &lt 3 HOME                       &kp PG_UP  &mt RIGHT_GUI ENTER
+                                                                           &lt 2 END                                                       &lt 3 PAGE_DOWN
             >;
 
             sensor-bindings =
@@ -105,25 +105,25 @@
 
         WIN {
             bindings = <
-&trans  &trans  &trans  &trans  &trans  &trans                                                                         &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans                                                                         &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans                                                                         &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans                                                                         &trans  &trans  &trans  &trans  &trans  &trans
-        &trans  &trans  &trans  &trans  &trans                  &trans  &kp LEFT_GUI  &trans  &trans                   &trans  &trans  &trans  &trans  &trans
-                                        &mt LEFT_CONTROL ENTER  &trans                &trans  &mt RIGHT_CONTROL ENTER
-                                        &trans                                                &trans
+&trans  &trans  &trans           &trans  &trans  &trans                                                                             &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans           &trans  &trans  &trans                                                                             &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans           &trans  &trans  &trans                                                                             &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans           &trans  &trans  &trans                                                                             &trans  &trans  &trans  &trans  &trans  &trans
+        &trans  &kp PRINTSCREEN  &trans  &trans  &trans                  &trans  &mt LEFT_GUI DEL  &trans  &trans                   &trans  &trans  &trans  &trans  &trans
+                                                 &mt LEFT_CONTROL ENTER  &trans                    &trans  &mt RIGHT_CONTROL ENTER
+                                                 &trans                                                    &trans
             >;
         };
 
         FN_NUMPAD {
             bindings = <
-&studio_unlock  &kp F1   &kp F2   &kp F3  &kp F4           &kp F5                                                 &kp F6           &kp F7           &kp F8           &kp F9           &kp F10          &trans
-&trans          &kp F11  &kp F12  &trans  &trans           &trans                                                 &trans           &kp KP_NUMBER_7  &kp KP_NUMBER_8  &kp KP_NUMBER_9  &trans           &trans
-&trans          &trans   &trans   &trans  &kp PRINTSCREEN  &trans                                                 &trans           &kp KP_NUMBER_4  &kp KP_NUMBER_5  &kp KP_NUMBER_6  &kp KP_PLUS      &kp KP_MULTIPLY
-&trans          &trans   &trans   &trans  &trans           &trans                                                 &trans           &kp KP_NUMBER_1  &kp KP_NUMBER_2  &kp KP_NUMBER_3  &kp KP_SUBTRACT  &kp KP_DIVIDE
-                &trans   &trans   &trans  &trans           &trans   &trans  &trans  &kp KP_NUMLOCK  &trans        &kp KP_NUMBER_0  &trans           &trans           &kp KP_DOT       &kp KP_EQUAL
-                                                           &trans   &trans          &trans          &kp KP_ENTER
-                                                           &kp INS                                  &trans
+&studio_unlock  &kp F1   &kp F2   &kp F3  &kp F4  &kp F5                                                &kp F6           &kp F7           &kp F8           &kp F9           &kp F10          &trans
+&trans          &kp F11  &kp F12  &trans  &trans  &trans                                                &trans           &kp KP_NUMBER_7  &kp KP_NUMBER_8  &kp KP_NUMBER_9  &trans           &trans
+&trans          &trans   &trans   &trans  &trans  &trans                                                &trans           &kp KP_NUMBER_4  &kp KP_NUMBER_5  &kp KP_NUMBER_6  &kp KP_PLUS      &kp KP_MULTIPLY
+&trans          &trans   &trans   &trans  &trans  &trans                                                &trans           &kp KP_NUMBER_1  &kp KP_NUMBER_2  &kp KP_NUMBER_3  &kp KP_SUBTRACT  &kp KP_DIVIDE
+                &trans   &trans   &trans  &trans  &trans  &trans  &trans  &kp KP_NUMLOCK  &trans        &kp KP_NUMBER_0  &trans           &trans           &kp KP_DOT       &kp KP_EQUAL
+                                                  &trans  &trans          &trans          &kp KP_ENTER
+                                                  &trans                                  &trans
             >;
 
             sensor-bindings =
