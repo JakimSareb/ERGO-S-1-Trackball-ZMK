@@ -89,13 +89,13 @@
 
         MAC {
             bindings = <
-&gresc     &kp N1      &kp N2      &kp N3          &kp N4       &kp N5                                                                                            &kp N6            &kp N7          &kp N8       &kp N9            &kp N0             &kp EQUAL
-&kp TAB    &kp Q       &kp W       &kp E           &kp R        &kp T                                                                                             &kp Y             &kp U           &kp I        &kp O             &kp P              &kp BSLH
-&kp LCTRL  &mt LGUI A  &mt LALT S  &mt LCTRL D     &mt LSHFT F  &kp G                                                                                             &kp H             &mt RSHFT J     &mt RCTRL K  &mt RALT L        &mt RGUI SEMI      &kp SINGLE_QUOTE
-&kp DEL    &kp Z       &kp X       &kp C           &kp V        &kp B                                                                                             &kp N             &kp M           &kp COMMA    &kp DOT           &kp SLASH          &kp MINUS
-           &kp NUBS    &kp GRAVE   &kp LEFT_ARROW  &kp RIGHT    &mt LSHIFT SPACE  &kp LCTRL           &kp LEFT_ALT  &kp CAPS             &kp RIGHT_CONTROL        &mt RSHIFT SPACE  &kp DOWN_ARROW  &kp UP       &kp LEFT_BRACKET  &kp RIGHT_BRACKET
-                                                                &lt 2 ENTER       &mt RIGHT_ALT HOME                &mt RIGHT_ALT PG_UP  &lt 3 ENTER
-                                                                &mt LEFT_GUI END                                                         &mt RIGHT_GUI PAGE_DOWN
+&gresc     &kp N1      &kp N2      &kp N3          &kp N4       &kp N5                                                                               &kp N6            &kp N7          &kp N8       &kp N9            &kp N0             &kp EQUAL
+&kp TAB    &kp Q       &kp W       &kp E           &kp R        &kp T                                                                                &kp Y             &kp U           &kp I        &kp O             &kp P              &kp BSLH
+&kp LCTRL  &mt LGUI A  &mt LALT S  &mt LCTRL D     &mt LSHFT F  &kp G                                                                                &kp H             &mt RSHFT J     &mt RCTRL K  &mt RALT L        &mt RGUI SEMI      &kp SINGLE_QUOTE
+&kp DEL    &kp Z       &kp X       &kp C           &kp V        &kp B                                                                                &kp N             &kp M           &kp COMMA    &kp DOT           &kp SLASH          &kp MINUS
+           &kp NUBS    &kp GRAVE   &kp LEFT_ARROW  &kp RIGHT    &mt LSHIFT SPACE    &mt LEFT_ALT BACKSPACE  &kp DEL  &kp CAPS   &kp RIGHT_ALT        &mt RSHIFT SPACE  &kp DOWN_ARROW  &kp UP       &kp LEFT_BRACKET  &kp RIGHT_BRACKET
+                                                                &mt LEFT_GUI ENTER  &lt 3 HOME                       &kp PG_UP  &mt RIGHT_GUI ENTER
+                                                                &lt 2 END                                                       &lt 3 PAGE_DOWN
             >;
 
             sensor-bindings =
@@ -105,13 +105,13 @@
 
         WIN {
             bindings = <
-&trans  &trans  &trans  &trans  &trans  &trans                                  &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans                                  &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans                                  &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans                                  &trans  &trans  &trans  &trans  &trans  &trans
-        &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
-                                        &trans  &trans          &trans  &trans
-                                        &trans                          &trans
+&trans  &trans  &trans  &trans  &trans  &trans                                                                         &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans                                                                         &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans                                                                         &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans                                                                         &trans  &trans  &trans  &trans  &trans  &trans
+        &trans  &trans  &trans  &trans  &trans                  &trans  &kp LEFT_GUI  &trans  &trans                   &trans  &trans  &trans  &trans  &trans
+                                        &mt LEFT_CONTROL ENTER  &trans                &trans  &mt RIGHT_CONTROL ENTER
+                                        &trans                                                &trans
             >;
         };
 
