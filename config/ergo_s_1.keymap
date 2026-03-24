@@ -15,7 +15,7 @@
 &mmv {
     acceleration-exponent = <4>;      // 1 para lineal, 2 para aceleración
     time-to-max-speed-ms = <300>;     // Baja este número para que sea más rápido
-    delay-ms = <0>;                   
+    delay-ms = <0>;
 };
 
 &msc {
@@ -33,12 +33,6 @@
     combos {
         compatible = "zmk,combos";
 
-        combo_backspace_left {
-            timeout-ms = <50>;
-            key-positions = <37 38>;
-            bindings = <&kp BACKSPACE>;
-        };
-
         combo_backspace_right {
             timeout-ms = <50>;
             key-positions = <31 32>;
@@ -50,6 +44,34 @@
             key-positions = <26 27 28>;
             bindings = <&kp ESCAPE>;
         };
+
+        MAC-App-Left {
+            bindings = <&kp LS(LC(F4))>;
+            key-positions = <40 39>;
+            timeout-ms = <50>;
+            layers = <0>;
+        };
+
+        MAC-App-Right {
+            bindings = <&kp LC(F4)>;
+            key-positions = <38 39>;
+            timeout-ms = <50>;
+            layers = <0>;
+        };
+
+        WIN-App-Left {
+            bindings = <&kp LS(LG(LA(LC(TAB))))>;
+            key-positions = <40 39>;
+            layers = <1>;
+            timeout-ms = <50>;
+        };
+
+        WIN-App-Right {
+            bindings = <&kp LG(LA(LC(TAB)))>;
+            key-positions = <39 38>;
+            layers = <1>;
+            timeout-ms = <50>;
+        };
     };
 
     behaviors {
@@ -57,6 +79,7 @@
             compatible = "zmk,behavior-sensor-rotate-var";
             #sensor-binding-cells = <2>;
             bindings = <&msc>, <&msc>;
+
             tap-ms = <20>;
         };
     };
@@ -64,57 +87,75 @@
     keymap {
         compatible = "zmk,keymap";
 
-        BASE {
+        MAC {
             bindings = <
-&gresc          &kp N1     &kp N2     &kp N3          &kp N4      &kp N5                                                              &kp N6                &kp N7          &kp N8          &kp N9            &kp N0             &kp EQUAL
-&kp TAB         &kp Q      &kp W      &kp E            &kp R      &kp T                                                               &kp Y                 &kp U           &kp I           &kp O             &kp P              &kp BSLH
-&kp LCTRL       &mt LGUI A &mt LALT S &mt LCTRL D  &mt LSHFT F &kp G                                                               &kp H                 &mt RSHFT J     &mt RCTRL K     &mt RALT L        &mt RGUI SEMI      &kp SINGLE_QUOTE
-&kp DEL         &kp Z      &kp X      &kp C            &kp V      &kp B                                                               &kp N                 &kp M           &kp COMMA       &kp DOT           &kp SLASH          &kp MINUS
-                &kp NUBS   &kp GRAVE  &kp LEFT_ARROW   &kp RIGHT  &mt LSHIFT SPACE     &kp LCTRL  &kp LEFT_ALT  &kp CAPS   &kp RIGHT_CONTROL  &mt RSHIFT SPACE     &kp DOWN_ARROW  &kp UP          &kp LEFT_BRACKET  &kp RIGHT_BRACKET
-                                                                  &lt 1 ENTER          &mt RIGHT_ALT HOME                   &mt RIGHT_ALT PG_UP &lt 2 ENTER
-                                                                  &mt LEFT_GUI END                                                              &mt RIGHT_GUI PAGE_DOWN
-            >; 
-
-            sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>, <&inc_dec_kp RIGHT_ARROW LEFT_ARROW>;
-        };
-
-        FN_NUMPAD {
-            bindings = <
-&studio_unlock  &kp F1        &kp F2        &kp F3        &kp F4           &kp F5                                                 &kp F6           &kp F7           &kp F8           &kp F9                    &kp F10          &trans
-&trans          &kp F11       &kp F12       &trans        &trans           &trans                                                 &trans           &kp KP_NUMBER_7  &kp KP_NUMBER_8  &kp KP_NUMBER_9           &trans           &trans 
-&trans          &trans        &trans        &trans        &kp PRINTSCREEN  &trans                                                 &trans           &kp KP_NUMBER_4  &kp KP_NUMBER_5  &kp KP_NUMBER_6           &kp KP_PLUS      &kp KP_MULTIPLY
-&trans          &trans        &trans        &trans        &trans           &trans                                                 &trans           &kp KP_NUMBER_1  &kp KP_NUMBER_2  &kp KP_NUMBER_3           &kp KP_SUBTRACT  &kp KP_DIVIDE
-                &trans        &trans        &trans        &trans           &trans         &trans  &trans  &kp KP_NUMLOCK  &trans  &kp KP_NUMBER_0  &trans           &trans           &kp KP_DOT                &kp KP_EQUAL
-                                                                                          &trans  &trans          &trans          &kp KP_ENTER
-                                                                                          &kp INS                                 &trans
+&gresc     &kp N1      &kp N2      &kp N3          &kp N4       &kp N5                                                                                            &kp N6            &kp N7          &kp N8       &kp N9            &kp N0             &kp EQUAL
+&kp TAB    &kp Q       &kp W       &kp E           &kp R        &kp T                                                                                             &kp Y             &kp U           &kp I        &kp O             &kp P              &kp BSLH
+&kp LCTRL  &mt LGUI A  &mt LALT S  &mt LCTRL D     &mt LSHFT F  &kp G                                                                                             &kp H             &mt RSHFT J     &mt RCTRL K  &mt RALT L        &mt RGUI SEMI      &kp SINGLE_QUOTE
+&kp DEL    &kp Z       &kp X       &kp C           &kp V        &kp B                                                                                             &kp N             &kp M           &kp COMMA    &kp DOT           &kp SLASH          &kp MINUS
+           &kp NUBS    &kp GRAVE   &kp LEFT_ARROW  &kp RIGHT    &mt LSHIFT SPACE  &kp LCTRL           &kp LEFT_ALT  &kp CAPS             &kp RIGHT_CONTROL        &mt RSHIFT SPACE  &kp DOWN_ARROW  &kp UP       &kp LEFT_BRACKET  &kp RIGHT_BRACKET
+                                                                &lt 2 ENTER       &mt RIGHT_ALT HOME                &mt RIGHT_ALT PG_UP  &lt 3 ENTER
+                                                                &mt LEFT_GUI END                                                         &mt RIGHT_GUI PAGE_DOWN
             >;
 
-            sensor-bindings = <&inc_dec_kp C_NEXT C_PREV>, <&inc_dec_kp C_BRIGHTNESS_INC C_BRIGHTNESS_DEC>;
+            sensor-bindings =
+                <&inc_dec_kp C_VOL_UP C_VOL_DN>,
+                <&inc_dec_kp RIGHT_ARROW LEFT_ARROW>;
         };
 
-        Mouse {
-            bindings = <
-&bt BT_CLR    &bt BT_SEL 0   &bt BT_SEL 1   &bt BT_SEL 2   &bt BT_SEL 3     &bt BT_SEL 4                                      &trans          &trans            &trans            &trans     &trans  &trans
-&trans        &trans         &trans         &mmv MOVE_UP    &trans           &trans                                            &trans         &trans            &trans            &trans     &trans  &trans
-&trans        &trans         &mmv MOVE_LEFT &mmv MOVE_DOWN  &mmv MOVE_RIGHT  &trans                                            &msc SCRL_UP   &mkp LCLK         &mkp MCLK         &mkp RCLK  &trans  &trans
-&trans        &trans         &trans         &trans          &trans           &trans                                            &msc SCRL_DOWN &msc SCRL_LEFT    &msc SCRL_RIGHT   &trans     &trans  &trans
-              &trans         &trans         &trans          &trans           &trans  &trans  &trans  &trans  &trans  &trans    &trans         &trans            &trans            &trans
-                                                                                     &trans  &trans          &trans  &trans
-                                                                                     &trans                          &trans
-            >;
-
-            sensor-bindings = <&inc_dec_msc SCRL_RIGHT SCRL_LEFT>, <&inc_dec_msc SCRL_UP SCRL_DOWN>;
-        };
-
-        Extra {
+        WIN {
             bindings = <
 &trans  &trans  &trans  &trans  &trans  &trans                                  &trans  &trans  &trans  &trans  &trans  &trans
 &trans  &trans  &trans  &trans  &trans  &trans                                  &trans  &trans  &trans  &trans  &trans  &trans
 &trans  &trans  &trans  &trans  &trans  &trans                                  &trans  &trans  &trans  &trans  &trans  &trans
 &trans  &trans  &trans  &trans  &trans  &trans                                  &trans  &trans  &trans  &trans  &trans  &trans
         &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
-                                                 &trans  &trans          &trans  &trans
-                                                 &trans                          &trans
+                                        &trans  &trans          &trans  &trans
+                                        &trans                          &trans
+            >;
+        };
+
+        FN_NUMPAD {
+            bindings = <
+&studio_unlock  &kp F1   &kp F2   &kp F3  &kp F4           &kp F5                                                 &kp F6           &kp F7           &kp F8           &kp F9           &kp F10          &trans
+&trans          &kp F11  &kp F12  &trans  &trans           &trans                                                 &trans           &kp KP_NUMBER_7  &kp KP_NUMBER_8  &kp KP_NUMBER_9  &trans           &trans
+&trans          &trans   &trans   &trans  &kp PRINTSCREEN  &trans                                                 &trans           &kp KP_NUMBER_4  &kp KP_NUMBER_5  &kp KP_NUMBER_6  &kp KP_PLUS      &kp KP_MULTIPLY
+&trans          &trans   &trans   &trans  &trans           &trans                                                 &trans           &kp KP_NUMBER_1  &kp KP_NUMBER_2  &kp KP_NUMBER_3  &kp KP_SUBTRACT  &kp KP_DIVIDE
+                &trans   &trans   &trans  &trans           &trans   &trans  &trans  &kp KP_NUMLOCK  &trans        &kp KP_NUMBER_0  &trans           &trans           &kp KP_DOT       &kp KP_EQUAL
+                                                           &trans   &trans          &trans          &kp KP_ENTER
+                                                           &kp INS                                  &trans
+            >;
+
+            sensor-bindings =
+                <&inc_dec_kp C_NEXT C_PREV>,
+                <&inc_dec_kp C_BRIGHTNESS_INC C_BRIGHTNESS_DEC>;
+        };
+
+        Mouse {
+            bindings = <
+&bt BT_CLR  &bt BT_SEL 0  &bt BT_SEL 1    &bt BT_SEL 2    &bt BT_SEL 3     &bt BT_SEL 4                                  &trans          &trans          &trans           &trans     &trans  &trans
+&trans      &trans        &trans          &mmv MOVE_UP    &trans           &trans                                        &trans          &trans          &trans           &trans     &trans  &trans
+&trans      &trans        &mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_RIGHT  &trans                                        &msc SCRL_UP    &mkp LCLK       &mkp MCLK        &mkp RCLK  &trans  &trans
+&trans      &trans        &trans          &trans          &trans           &trans                                        &msc SCRL_DOWN  &msc SCRL_LEFT  &msc SCRL_RIGHT  &trans     &trans  &trans
+            &trans        &trans          &trans          &trans           &trans        &trans  &trans  &trans  &trans  &trans          &trans          &trans           &trans     &trans
+                                                                           &trans        &trans          &trans  &trans
+                                                                           &trans                                &trans
+            >;
+
+            sensor-bindings =
+                <&inc_dec_msc SCRL_RIGHT SCRL_LEFT>,
+                <&inc_dec_msc SCRL_UP SCRL_DOWN>;
+        };
+
+        EXTRA {
+            bindings = <
+&trans  &trans  &trans  &trans  &trans  &trans                                  &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans                                  &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans                                  &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans                                  &trans  &trans  &trans  &trans  &trans  &trans
+        &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+                                        &trans  &trans          &trans  &trans
+                                        &trans                          &trans
             >;
         };
     };
