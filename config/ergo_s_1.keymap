@@ -82,11 +82,10 @@
     
     key-overrides {
         compatible = "zmk,key-overrides";
-
         shift_bksp_del: shift_bksp_del {
-            when-pressed = <&kp DEL>;
+            bindings = <&kp DEL>; // Se usa 'bindings' en versiones modernas de ZMK
             modifiers = <(MOD_LSFT|MOD_RSFT)>;
-            keycodes = <BACKSPACE>;
+            keycodes = <BSPC>; // Usamos el alias corto que es más fiable
         };
     };
 
@@ -109,7 +108,7 @@
 &kp ESCAPE       &kp Q      &kp W                 &kp E           &kp R      &kp T                                                                                &kp Y             &kp U           &kp I      &kp O           &kp P            &kp UNDER
 &mt LCTRL TAB    &kp A      &kp S                 &kp D           &kp F      &kp G                                                                                &kp H             &kp J           &kp K      &kp L           &kp SEMI         &kp SINGLE_QUOTE
 &sk LEFT_SHIFT   &kp Z      &kp X                 &kp C           &kp V      &kp B                                                                                &kp N             &kp M           &kp COMMA  &kp DOT         &kp SLASH        &kp BACKSLASH
-                 &kp GRAVE  &kp LG(LS(NUMBER_4))  &kp LEFT_ARROW  &kp RIGHT  &mt LSHIFT SPACE    &mt LEFT_ALT BACKSPACE  &kp DEL  &kp CAPS   &kp RIGHT_ALT        &mt RSHIFT SPACE  &kp DOWN_ARROW  &kp UP     &kp LEFT_BRACE  &kp RIGHT_BRACE
+                 &kp GRAVE  &kp LG(LS(NUMBER_4))  &kp LEFT_ARROW  &kp RIGHT  &mt LSHIFT SPACE    &mt LEFT_ALT BACKSPACE  &kp DEL  &kp CAPS   &kp RIGHT_ALT        &mt RSHIFT SPACE  &kp DOWN_ARROW  &kp UP     &kp LBKT        &kp RBKT
                                                                              &mt LEFT_GUI ENTER  &kp HOME                         &kp PG_UP  &mt RIGHT_GUI ENTER
                                                                              &lt 2 END                                                       &lt 3 PAGE_DOWN
             >;
