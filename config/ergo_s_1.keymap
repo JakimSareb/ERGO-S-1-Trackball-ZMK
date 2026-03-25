@@ -102,6 +102,13 @@
             bindings = <&kp Q>, <&kp LA(F4)>;
             mods = <(MOD_LCTL|MOD_RCTL)>;  // Changed from 'modifiers'
         };
+
+       sk: sticky_key {
+            compatible = "zmk,behavior-sticky-key";
+            #binding-cells = <1>;
+            quick-release;
+        };
+
     };
 
     keymap {
