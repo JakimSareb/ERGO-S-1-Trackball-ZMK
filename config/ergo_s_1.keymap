@@ -94,7 +94,6 @@
             #binding-cells = <0>;
             bindings = <&kp BACKSPACE>, <&kp DELETE>;
             mods = <(MOD_LSFT|MOD_RSFT)>;
-            keep-mods = <(MOD_RSFT)>;
         };
 
        ctrl_q_altf4: ctrl_q_altf4 {
@@ -102,7 +101,6 @@
             #binding-cells = <0>;
             bindings = <&kp Q>, <&kp LA(F4)>;
             mods = <(MOD_LCTL|MOD_RCTL)>;  // Changed from 'modifiers'
-            keep-mods = <(MOD_RCTL)>;
         };
     };
 
