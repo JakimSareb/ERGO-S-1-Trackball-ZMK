@@ -33,10 +33,10 @@
     combos {
         compatible = "zmk,combos";
 
-        combo_backspace_right {
+        combo_backspace {
             timeout-ms = <50>;
             key-positions = <31 32>;
-            bindings = <&kp BSPC>;
+            bindings = <&bspc_del>;
         };
 
         combo_escape {
@@ -46,59 +46,37 @@
             layers = <0 1>;
         };
 
-        MAC-App-Left {
+        combo_MAC-App-Left {
             bindings = <&kp LC(F4)>;
             key-positions = <40 39>;
             timeout-ms = <50>;
             layers = <0>;
         };
 
-        MAC-App-Right {
+        combo_MAC-App-Right {
             bindings = <&kp LS(LC(F4))>;
             key-positions = <38 39>;
             timeout-ms = <50>;
             layers = <0>;
         };
 
-        WIN-App-Left {
+        combo_WIN-App-Left {
             bindings = <&kp LG(LA(LC(TAB)))>;
             key-positions = <40 39>;
             layers = <1>;
             timeout-ms = <50>;
         };
 
-        WIN-App-Right {
+        combo_WIN-App-Right {
             bindings = <&kp LS(LG(LA(LC(TAB))))>;
             key-positions = <39 38>;
             layers = <1>;
             timeout-ms = <50>;
         };
 
-        TOGGLE-MAC-WIN {
+        combo_TOGGLE-MAC-WIN {
             bindings = <&tog 1>;
             key-positions = <0 11>;
-        };
-    };
-
-    key-overrides {
-        compatible = "zmk,key-overrides";
-
-        // Override 1: Shift + Backspace = Delete
-        // Incluimos LALT en trigger-mods porque tu tecla es un Mod-Tap (ALT al mantener)
-
-        shift_bksp_del: shift_bksp_del {
-            bindings = <&kp DEL>;
-            modifiers = <(MOD_LSFT|MOD_RSFT)>;
-            keycodes = <BSPC>;
-            trigger-mods = <(MOD_LALT)>; // Esto ayuda si el override se pisa con el mod-tap
-        };
-
-        // Override 2: CTRL + Q = ALT + F4
-
-        ctrl_q_altf4: ctrl_q_altf4 {
-            bindings = <&kp LA(F4)>;
-            modifiers = <(MOD_LCTL|MOD_RCTL)>;
-            keycodes = <Q>;
         };
     };
 
@@ -110,6 +88,22 @@
 
             tap-ms = <20>;
         };
+
+        bspc_del: backspace_delete {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp BACKSPACE>, <&kp DELETE>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+            keep-mods = <(MOD_RSFT)>;
+        };
+
+        ctrl_q_altf4: ctrl_q_altf4 {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp Q>, <&kp LA(F4)>;
+            modifiers = <(MOD_LCTL|MOD_RCTL)>;
+            keep-mods = <(MOD_RCTL)>;
+        };
     };
 
     keymap {
@@ -117,13 +111,13 @@
 
         MAC {
             bindings = <
-&kp NON_US_BSLH  &kp N1     &kp N2                &kp N3          &kp N4     &kp N5                                                                               &kp N6            &kp N7          &kp N8     &kp N9    &kp N0     &kp MINUS
-&kp ESCAPE       &kp Q      &kp W                 &kp E           &kp R      &kp T                                                                                &kp Y             &kp U           &kp I      &kp O     &kp P      &kp EQUAL
-&mt LCTRL TAB    &kp A      &kp S                 &kp D           &kp F      &kp G                                                                                &kp H             &kp J           &kp K      &kp L     &kp SEMI   &kp SINGLE_QUOTE
-&sk LEFT_SHIFT   &kp Z      &kp X                 &kp C           &kp V      &kp B                                                                                &kp N             &kp M           &kp COMMA  &kp DOT   &kp SLASH  &kp BACKSLASH
-                 &kp GRAVE  &kp LG(LS(NUMBER_4))  &kp LEFT_ARROW  &kp RIGHT  &mt LSHIFT SPACE    &mt LEFT_ALT BACKSPACE  &kp DEL  &kp CAPS   &kp RIGHT_ALT        &mt RSHIFT SPACE  &kp DOWN_ARROW  &kp UP     &kp LBKT  &kp RBKT
-                                                                             &mt LEFT_GUI ENTER  &kp HOME                         &kp PG_UP  &mt RIGHT_GUI ENTER
-                                                                             &lt 2 END                                                       &lt 3 PAGE_DOWN
+&kp NON_US_BSLH  &kp N1        &kp N2                &kp N3          &kp N4     &kp N5                                                                               &kp N6            &kp N7          &kp N8     &kp N9    &kp N0     &kp MINUS
+&kp ESCAPE       &ctrl_q_altf4 &kp W                 &kp E           &kp R      &kp T                                                                                &kp Y             &kp U           &kp I      &kp O     &kp P      &kp EQUAL
+&mt LCTRL TAB    &kp A         &kp S                 &kp D           &kp F      &kp G                                                                                &kp H             &kp J           &kp K      &kp L     &kp SEMI   &kp SINGLE_QUOTE
+&sk LEFT_SHIFT   &kp Z         &kp X                 &kp C           &kp V      &kp B                                                                                &kp N             &kp M           &kp COMMA  &kp DOT   &kp SLASH  &kp BACKSLASH
+                 &kp GRAVE     &kp LG(LS(NUMBER_4))  &kp LEFT_ARROW  &kp RIGHT  &mt LSHIFT SPACE    &mt LEFT_ALT BACKSPACE  &kp DEL  &kp CAPS   &kp RIGHT_ALT        &mt RSHIFT SPACE  &kp DOWN_ARROW  &kp UP     &kp LBKT  &kp RBKT
+                                                                                &mt LEFT_GUI ENTER  &kp HOME                         &kp PG_UP  &mt RIGHT_GUI ENTER
+                                                                                &lt 2 END                                                       &lt 3 PAGE_DOWN
             >;
 
             sensor-bindings =
