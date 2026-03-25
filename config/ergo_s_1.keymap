@@ -36,7 +36,7 @@
         combo_backspace_right {
             timeout-ms = <50>;
             key-positions = <31 32>;
-            bindings = <&kp BACKSPACE>;
+            bindings = <&kp BSPC>;
         };
 
         combo_escape {
@@ -47,28 +47,28 @@
         };
 
         MAC-App-Left {
-            bindings = <&kp LS(LC(F4))>;
+            bindings = <&kp LC(F4)>;
             key-positions = <40 39>;
             timeout-ms = <50>;
             layers = <0>;
         };
 
         MAC-App-Right {
-            bindings = <&kp LC(F4)>;
+            bindings = <&kp LS(LC(F4))>;
             key-positions = <38 39>;
             timeout-ms = <50>;
             layers = <0>;
         };
 
         WIN-App-Left {
-            bindings = <&kp LS(LG(LA(LC(TAB))))>;
+            bindings = <&kp LG(LA(LC(TAB)))>;
             key-positions = <40 39>;
             layers = <1>;
             timeout-ms = <50>;
         };
 
         WIN-App-Right {
-            bindings = <&kp LG(LA(LC(TAB)))>;
+            bindings = <&kp LS(LG(LA(LC(TAB))))>;
             key-positions = <39 38>;
             layers = <1>;
             timeout-ms = <50>;
