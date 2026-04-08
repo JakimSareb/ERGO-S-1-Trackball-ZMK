@@ -37,6 +37,7 @@
             timeout-ms = <50>;
             key-positions = <31 32>;
             bindings = <&bspc_del>;
+            layers = <0 1>;
         };
 
         combo_escape {
@@ -83,6 +84,14 @@
             bindings = <&kp TAB>;
             key-positions = <28 27>;
         };
+
+        combo_CAPS_WORD {
+            bindings = <&kp CAPSLOCK>;
+            key-positions = <36 47>;
+            layers = <0 1>;
+        };
+
+
     };
 
     behaviors {
@@ -131,6 +140,77 @@
         };
     };
 
+    macros {
+        // Macro para limpiar conexiones Bluetooth antes de cambiar de perfil
+        bt0_clean: bt0_clean {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <10>;
+            tap-ms = <10>;
+            bindings
+                = <&bt BT_DISC 0>
+                , <&bt BT_DISC 1>
+                , <&bt BT_DISC 2>
+                , <&bt BT_DISC 3>
+                , <&bt BT_DISC 4>
+                , <&bt BT_SEL 0>; // Seleccionar perfil 0
+        };
+        bt1_clean: bt1_clean {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <10>;
+            tap-ms = <10>;
+            bindings
+                = <&bt BT_DISC 0>
+                , <&bt BT_DISC 1>
+                , <&bt BT_DISC 2>
+                , <&bt BT_DISC 3>
+                , <&bt BT_DISC 4>
+                , <&bt BT_SEL 1>; // Seleccionar perfil 1
+        };
+	bt2_clean: bt2_clean {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <10>;
+            tap-ms = <10>;
+            bindings
+                = <&bt BT_DISC 0>
+                , <&bt BT_DISC 1>
+                , <&bt BT_DISC 2>
+                , <&bt BT_DISC 3>
+                , <&bt BT_DISC 4>
+                , <&bt BT_SEL 2>; // Seleccionar perfil 2
+        };
+	bt3_clean: bt3_clean {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <10>;
+            tap-ms = <10>;
+            bindings
+                = <&bt BT_DISC 0>
+                , <&bt BT_DISC 1>
+                , <&bt BT_DISC 2>
+                , <&bt BT_DISC 3>
+                , <&bt BT_DISC 4>
+                , <&bt BT_SEL 3>; // Seleccionar perfil 3
+        };
+	bt4_clean: bt4_clean {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <10>;
+            tap-ms = <10>;
+            bindings
+                = <&bt BT_DISC 0>
+                , <&bt BT_DISC 1>
+                , <&bt BT_DISC 2>
+                , <&bt BT_DISC 3>
+                , <&bt BT_DISC 4>
+                , <&bt BT_SEL 4>; // Seleccionar perfil 4
+        };
+	
+    };
+
+
     keymap {
         compatible = "zmk,keymap";
 
@@ -140,8 +220,8 @@
 &kp TAB              &kp Q          &kp W                 &kp E           &kp R      &kp T                                                                                                 &kp Y      &kp U           &kp I      &kp O     &kp P      &kp MINUS
 &kp LCTRL            &kp A          &kp S                 &kp D           &kp F      &kp G                                                                                                 &kp H      &kp J           &kp K      &kp L     &kp SEMI   &kp SINGLE_QUOTE
 &sk LSHIFT           &kp Z          &kp X                 &kp C           &kp V      &kp B                                                                                                 &kp N      &kp M           &kp COMMA  &kp DOT   &kp SLASH  &kp BACKSLASH
-                     &kp GRAVE      &kp LG(LS(NUMBER_4))  &kp LEFT_ARROW  &kp RIGHT  &mt LSHIFT SPACE    &mt LEFT_ALT BACKSPACE  &mt LEFT_GUI DEL  &mt LEFT_GUI CAPS  &kp RIGHT_ALT        &kp SPACE  &kp DOWN_ARROW  &kp UP     &kp LBKT  &kp RBKT
-                                                                                     &kp LEFT_GUI        &kp HOME                                  &kp PG_UP          &kp ENTER
+                     &kp GRAVE      &kp LG(LS(NUMBER_4))  &kp LEFT_ARROW  &kp RIGHT  &mt LSHIFT SPACE    &mt LEFT_ALT BACKSPACE  &mt LEFT_GUI DEL  &mt LEFT_GUI CAPS  &kp RIGHT_ALT        &kp SPACE  &kp DOWN_ARROW  &kp UP     &kp LBKT  &mt RSHIFT RBKT
+                                                                                     &mt LEFT_GUI ENTER  &kp HOME                                  &kp PG_UP          &kp ENTER
                                                                                      &lt 2 END                                                                        &lt 3 PAGE_DOWN
             >;
 
@@ -164,7 +244,7 @@
 
         FN_NUMPAD {
             bindings = <
-&studio_unlock  &kp F1   &kp F2   &kp F3   &kp F4   &kp F5                                                          &kp F6           &kp F7           &kp F8           &kp F9           &kp F10          &trans
+&trans          &kp F1   &kp F2   &kp F3   &kp F4   &kp F5                                                          &kp F6           &kp F7           &kp F8           &kp F9           &kp F10          &trans
 &trans          &kp F11  &kp F12  &trans   &trans   &trans                                                          &trans           &kp KP_NUMBER_7  &kp KP_NUMBER_8  &kp KP_NUMBER_9  &trans           &trans
 &trans          &trans   &trans   &trans   &trans   &trans                                                          &trans           &kp KP_NUMBER_4  &kp KP_NUMBER_5  &kp KP_NUMBER_6  &kp KP_PLUS      &kp KP_MULTIPLY
 &trans          &trans   &trans   &trans   &trans   &trans                                                          &trans           &kp KP_NUMBER_1  &kp KP_NUMBER_2  &kp KP_NUMBER_3  &kp KP_SUBTRACT  &kp KP_DIVIDE
@@ -180,13 +260,13 @@
 
         Bluetooth {
             bindings = <
-&studio_unlock   &bt BT_SEL 0  &bt BT_SEL 1    &bt BT_SEL 2    &bt BT_SEL 3     &bt BT_SEL 4                                     &trans          &trans          &trans           &trans     &trans  &bt BT_CLR
+&studio_unlock   &bt0_clean    &bt1_clean      &bt2_clean      &bt3_clean       &bt4_clean                                       &trans          &trans          &trans           &trans     &trans  &bt BT_CLR
 &trans           &trans        &trans          &mmv MOVE_UP    &trans           &trans                                           &trans          &trans          &trans           &trans     &trans  &trans
 &trans           &trans        &mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_RIGHT  &trans                                           &msc SCRL_UP    &mkp LCLK       &mkp MCLK        &mkp RCLK  &trans  &trans
 &trans           &trans        &trans          &trans          &trans           &trans                                           &msc SCRL_DOWN  &msc SCRL_LEFT  &msc SCRL_RIGHT  &trans     &trans  &trans
                  &trans        &trans          &trans          &trans           &trans        &trans  &trans  &trans  &kp GLOBE  &trans          &trans          &trans           &trans     &trans
-                                                                           &trans        &trans          &trans  &trans
-                                                                           &trans                                &trans
+                                                                                &trans        &trans          &trans  &trans
+                                                                                &trans                                &trans
             >;
 
             sensor-bindings =
