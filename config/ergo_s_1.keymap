@@ -15,16 +15,6 @@
 #define DEFAULT 0
 #define FN      1
 
-&mmv {
-    acceleration-exponent = <4>;      // 1 para lineal, 2 para aceleración
-    time-to-max-speed-ms = <300>;     // Baja este número para que sea más rápido
-    delay-ms = <0>;
-};
-
-&msc {
-    time-to-max-speed-ms = <300>;
-    acceleration-exponent = <2>;
-};
 
 &mt {
     tapping-term-ms = <200>;
