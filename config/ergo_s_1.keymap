@@ -35,7 +35,7 @@
         combo_backspace {
             timeout-ms = <50>;
             key-positions = <31 32>;
-            bindings = <&bspc_del>;
+            bindings = <&kp BSPC>;
             layers = <MAC WIN>;
         };
 
@@ -82,6 +82,7 @@
         combo_tab {
             bindings = <&kp TAB>;
             key-positions = <28 27>;
+            layers = <MAC WIN>;
         };
 
         combo_caps_word {
